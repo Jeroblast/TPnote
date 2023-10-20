@@ -40,7 +40,7 @@ describe('Get All order ', () => {
   it ('should return a 404 if orders does not exist', async () => {
 
     //Act
-    const getAllOrdersResponse = await request(app.getHttpServer()).get('/api/orders/all-order');
+    const getAllOrdersResponse = await request(app.getHttpServer()).get('/api/orders/');
 
     //Assert
     expect(getAllOrdersResponse.status).toBe(404);

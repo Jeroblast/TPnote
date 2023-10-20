@@ -2,12 +2,12 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import OrderRepository from '@src/modules/order/infrastructure/repository/order.repository';
 import OrderController from '@src/modules/order/presentation/controller/order.controller';
-import GetAllOrderService from './domain/service/usecase/get-all-orders.service';
-import { OrderRepositoryInterface } from './domain/port/order.repository.interface';
-import GetOrderBeforeService from './domain/service/usecase/get-orders-before-date.service';
-import GetOrderAfterService from './domain/service/usecase/get-orders-after-date.service';
-import OrderNew from './domain/model/entity/orders.orm-entity';
-import GetOrderCustomersService from './domain/service/usecase/get-orders-customer.service';
+import GetAllOrderService from '../../../../src/modules/order/domain/service/usecase/get-all-orders.service';
+import { OrderRepositoryInterface } from '../../../../src/modules/order/domain/port/order.repository.interface';
+import GetOrderBeforeService from '../../../../src/modules/order/domain/service/usecase/get-orders-before-date.service';
+import GetOrderAfterService from '../../../../src/modules/order/domain/service/usecase/get-orders-after-date.service';
+import OrderNew from '../../../../src/modules/order/domain/model/entity/orders.orm-entity';
+import GetOrderCustomersService from '../../../../src/modules/order/domain/service/usecase/get-orders-customer.service';
 
 @Module({
   imports: [TypeOrmModule.forFeature([OrderNew])],

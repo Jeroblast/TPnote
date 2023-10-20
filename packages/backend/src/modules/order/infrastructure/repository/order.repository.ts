@@ -27,7 +27,7 @@ export default class OrderRepository extends Repository<OrderNew> implements Ord
   async findOrdersAfterDate(createdAt: Date): Promise<OrderNew[]> {
     const query = this.createQueryBuilder('Order');
 
-    query.where('order.createdAt > :Date', {createdAt});
+    query.where('order.createdAt > :Date', {date:createdAt});
 
     return await query.getMany();
   }

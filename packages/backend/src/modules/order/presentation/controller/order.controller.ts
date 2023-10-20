@@ -9,6 +9,7 @@ import UpdateOrderStatusToPaidService from '../../domain/service/usecase/update-
 import UpdateOrderStatusToCancelService from '../../domain/service/usecase/update-order-by-id-cancel.service';
 import { DeleteOrderByIdService } from '../../domain/service/usecase/delete-order-by-id.service';
 import CreateOrderService from '../../domain/service/usecase/create-order.service';
+import { CreateOrderDto } from '../dto/create-order.dto';
 
 @Controller('/orders')
 export default class OrderController {
@@ -25,7 +26,7 @@ constructor(
 
   ) {}
 
-  @Get('/all-order')
+  @Get()
   async getAllOrder(): Promise<OrderNew[]> {
 
     return await this.getAllOrderService.getAllOrders();
@@ -57,7 +58,7 @@ constructor(
         return await this.updateOrderStatusToCancelService.updateOrderStatusToCancel(orderId);
     }
 
-    @Delete('/:orderId/delete')
+    @Delete('/:orderId/delete/ ')
     async deleteOrderById(@Param('orderId') orderId: string): Promise<void> {
       return await this.deleteOrderByIdService.deleteOrderById(orderId);
     }
